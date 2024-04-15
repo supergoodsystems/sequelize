@@ -197,6 +197,7 @@ export class PostgresConnectionManager extends AbstractConnectionManager<
       });
     });
 
+    connection.queryType = config.queryType;
     // Don't let a Postgres restart (or error) to take down the whole app
     connection.on('error', (error: any) => {
       connection._invalid = true;
